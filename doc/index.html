@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>#BreakFree</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+<!--    <link href="css/bootstrap-responsive.css" rel="stylesheet">-->
+    <!-- Loading Flat UI -->
+    <link href="css/flat-ui.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+ 
+    <link rel="shortcut icon" href="ico/favicon.png">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="demo-headline">
+        <h1 class="demo-logo">
+          <div class="logo"></div>
+          #BreakFree
+          <small>Explications et documentation</small>
+        </h1>
+      </div> <!-- /demo-headline -->
+		
+	<div class="row">
+		<h1>Description du webservice</h1>
+		<p>Le webservice BreakFreeEngine permet de recréer un jeu télévisé avec une partie, des joueurs ainsi qu'une collection de questions avec ses réponses.</p>
+		
+		<h1>Tables des matières</h1>
+		<ul class="tablematiere">
+			<li><a href="#methodes">Listes des méthodes REST fonctionnelles</a></li>
+		</ul>		
+	</div>
+
+	
+	<div class="row" id="methodes">
+		
+		
+		<h1>Méthodes et URL</h1>
+		
+		
+		<div class="span12">
+			<h2>GET Partie/{id}</h2>
+			<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/partie/1</a></p>
+			<h3>ContentJSON:</h3>
+			<pre>Aucun</pre>
+			<h3>Retour</h3>
+<pre>
+{
+    "id": 1,
+    "isOver": false,
+    "players": [
+        {
+            "id": 1,
+            "name": null,
+            "email": null,
+            "nbrPoints": 0
+        },
+        ...
+    ],
+    "questions": [
+        {
+            "id": 1,
+            "title": "Cool 0",
+            "urlMedia": "media/cool_0.png",
+            "rank": 1,
+            "reponses": [
+                {
+                    "id": 1,
+                    "title": "Reponse0",
+                    "urlMedia": "media/reponse_0.png",
+                    "isCorrect": true
+                },
+                {
+                    "id": 2,
+                    "title": "Reponse1",
+                    "urlMedia": "media/reponse_1.png",
+                    "isCorrect": false
+                },
+                {
+                    "id": 3,
+                    "title": "Reponse2",
+                    "urlMedia": "media/reponse_2.png",
+                    "isCorrect": false
+                },
+                {
+                    "id": 4,
+                    "title": "Reponse3",
+                    "urlMedia": "media/reponse_3.png",
+                    "isCorrect": false
+                }
+            ]
+        },
+        ...
+            ]
+        }
+    ]
+}</pre>
+		</div>
+		<!-- début -->
+		<div class="span12">
+		<h2>GET Partie/{id}/gagnant</h2>
+		<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/partie/1/gagnant</a></p>
+		<h3>ContentJSON:</h3>
+		<pre>Aucun</pre>
+
+			<h3>Retour</h3>
+<pre>
+{
+    "id": 3,
+    "name": "Léo",
+    "email": "leo.taillard@gmail.com",
+    "nbrPoints": 100
+}
+</pre>
+		</div>
+		<!-- fin -->
+		
+				<!-- début -->
+				<div class="span12">
+					<h2>PUT Partie/{id}/terminePartie</h2>
+					<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/partie/1/gagnant</a></p>
+					<h3>ContentJSON:</h3>
+					<pre>Aucun</pre>		
+					<h3>Retour</h3>
+					<p>la partie est terminée
+					</p>
+				</div>
+				<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>GET Partie/partieEnCours</h2>
+					<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/partie/partieEnCours</a></p>
+	<h3>ContentJSON:</h3>
+	<pre>Aucun</pre>		
+	<h3>Retour</h3>
+<pre>
+[
+    {
+        "id": 2,
+        "isOver": false,
+        "players": [
+            {
+                "id": 5,
+                "name": "player0",
+                "email": null,
+                "nbrPoints": 0
+            },
+            ...
+        ],
+        "questions": [
+            {
+                "id": 1,
+                "title": "Cool 0",
+                "urlMedia": "media/cool_0.png",
+                "rank": 1,
+                "reponses": [
+                    {
+                        "id": 1,
+                        "title": "Reponse0",
+                        "urlMedia": "media/reponse_0.png",
+                        "isCorrect": true
+                    },
+                    {
+                        "id": 2,
+                        "title": "Reponse1",
+                        "urlMedia": "media/reponse_1.png",
+                        "isCorrect": false
+                    },
+                    {
+                        "id": 3,
+                        "title": "Reponse2",
+                        "urlMedia": "media/reponse_2.png",
+                        "isCorrect": false
+                    },
+                    {
+                        "id": 4,
+                        "title": "Reponse3",
+                        "urlMedia": "media/reponse_3.png",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            ...
+        ]
+    },
+    {
+        "id": 3,
+        "isOver": false,
+        "players": [
+            {
+                "id": 7,
+                "name": "Jean",
+                "email": null,
+                "nbrPoints": 1
+            },
+            ...
+        ],
+        "questions": [
+            {
+                "id": 1,
+                "title": "Cool 0",
+                "urlMedia": "media/cool_0.png",
+                "rank": 1,
+                "reponses": [
+                    {
+                        "id": 1,
+                        "title": "Reponse0",
+                        "urlMedia": "media/reponse_0.png",
+                        "isCorrect": true
+                    },
+                    {
+                        "id": 2,
+                        "title": "Reponse1",
+                        "urlMedia": "media/reponse_1.png",
+                        "isCorrect": false
+                    },
+                    {
+                        "id": 3,
+                        "title": "Reponse2",
+                        "urlMedia": "media/reponse_2.png",
+                        "isCorrect": false
+                    },
+                    {
+                        "id": 4,
+                        "title": "Reponse3",
+                        "urlMedia": "media/reponse_3.png",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            ...
+        ]
+    },
+    ...
+     ]
+]</pre>
+
+</div>
+<!-- fin -->
+
+<!-- début -->
+<div class="span12">
+	<h2>GET Partie/{id}/questionRandom</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/partie/1/questionRandom</a></p>
+	<h3>ContentJSON:</h3>
+<pre>
+aucun
+</pre>
+	<h3>Retour</h3>
+<pre>
+{
+    "id": 2,
+    "title": "Cool 1",
+    "urlMedia": "media/cool_1.png",
+    "rank": 3,
+    "reponses": [
+        {
+            "id": 5,
+            "title": "Reponse0",
+            "urlMedia": "media/reponse_0.png",
+            "isCorrect": true
+        },
+        {
+            "id": 6,
+            "title": "Reponse1",
+            "urlMedia": "media/reponse_1.png",
+            "isCorrect": false
+        },
+        {
+            "id": 7,
+            "title": "Reponse2",
+            "urlMedia": "media/reponse_2.png",
+            "isCorrect": false
+        },
+        {
+            "id": 8,
+            "title": "Reponse3",
+            "urlMedia": "media/reponse_3.png",
+            "isCorrect": false
+        }
+    ]
+}</pre>
+
+</div>
+<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>GET Partie/{id}/player</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/partie/1/players</a></p>
+	<h3>ContentJSON:</h3>
+	<pre>Aucun</pre>
+	<h3>Retour</h3>
+<pre>
+[
+    {
+        "id": 1,
+        "name": null,
+        "email": null,
+        "nbrPoints": 0
+    },
+    {
+        "id": 2,
+        "name": null,
+        "email": null,
+        "nbrPoints": 0
+    },
+    {
+        "id": 3,
+        "name": "Léo",
+        "email": "leo.taillard@gmail.com",
+        "nbrPoints": 100
+    },
+    {
+        "id": 4,
+        "name": null,
+        "email": null,
+        "nbrPoints": 0
+    }
+]</pre>
+</div>
+<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>POST Partie</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/partie?nbrPlayer=2</a></p>
+	<h3>ContentJSON:</h3>
+<pre>
+{
+}
+</pre>
+	<h3>Retour</h3>
+<pre>
+{
+    "id": 14,
+    "isOver": false,
+    "players": [
+        {
+            "id": 40,
+            "name": "player0",
+            "email": null,
+            "nbrPoints": 0
+        },
+        {
+            "id": 41,
+            "name": "player1",
+            "email": null,
+            "nbrPoints": 0
+        }
+    ],
+    "questions": [
+        {
+            "id": 5,
+            "title": "Cool 4",
+            "urlMedia": "media/cool_4.png",
+            "rank": 1,
+            "reponses": [
+                {
+                    "id": 17,
+                    "title": "Reponse0",
+                    "urlMedia": "media/reponse_0.png",
+                    "isCorrect": true
+                },
+                {
+                    "id": 18,
+                    "title": "Reponse1",
+                    "urlMedia": "media/reponse_1.png",
+                    "isCorrect": false
+                }
+            ]
+        },
+        ...
+    ]
+}</pre>
+</div>
+<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>GET Player/{id}</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/player/1</a></p>
+	<h3>ContentJSON:</h3>
+	<pre>Aucun</pre>
+	<h3>Retour</h3>
+<pre>
+{
+    "id": 1,
+    "name": "Léo",
+    "email": null,
+    "nbrPoints": 0
+}</pre>
+</div>
+<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>PUT Player/{id}?nbrPoints=x</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/player/1?nbrPoints=12</a></p>
+	<h3>ContentJSON:</h3>
+<pre>
+{
+    "id": 1,
+    "name": "Léo",
+    "email": null,
+    "nbrPoints": 0
+}</pre>
+	<h3>Retour</h3>
+<pre>
+{
+    "id": 1,
+    "name": null,
+    "email": null,
+    "nbrPoints": 12
+}</pre>
+</div>
+<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>PUT Player</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/player/</a></p>
+	<h3>ContentJSON:</h3>
+<pre>
+{
+    "id": 1,
+    "name": "Léo",
+    "email": null,
+    "nbrPoints": 0
+}</pre>
+	<h3>Retour</h3>
+<pre>
+{
+    "id": 1,
+    "name": "Léo",
+    "email": null,
+    "nbrPoints": 0
+}</pre>
+</div>
+<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>GET Question/{id}</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/question/1</a></p>
+	<h3>ContentJSON:</h3>
+<pre>
+aucun
+</pre>
+	<h3>Retour</h3>
+<pre>
+{
+    "id": 1,
+    "title": "Cool 0",
+    "urlMedia": "media/cool_0.png",
+    "rank": 1,
+    "reponses": [
+        {
+            "id": 1,
+            "title": "Reponse0",
+            "urlMedia": "media/reponse_0.png",
+            "isCorrect": true
+        },
+        {
+            "id": 2,
+            "title": "Reponse1",
+            "urlMedia": "media/reponse_1.png",
+            "isCorrect": false
+        },
+        {
+            "id": 3,
+            "title": "Reponse2",
+            "urlMedia": "media/reponse_2.png",
+            "isCorrect": false
+        },
+        {
+            "id": 4,
+            "title": "Reponse3",
+            "urlMedia": "media/reponse_3.png",
+            "isCorrect": false
+        }
+    ]
+}</pre>
+</div>
+<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>DELETE Question/{id}</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/question/1</a></p>
+	<h3>ContentJSON:</h3>
+<pre>
+aucun
+</pre>
+	<h3>Retour</h3>
+<pre>
+La question a bien été supprimée
+</pre>
+</div>
+<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>POST Question</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/question</a></p>
+	<h3>ContentJSON:</h3>
+<pre>
+{
+    "title": "Cool 0",
+    "urlMedia": "media/cool_0.png",
+    "rank": 1
+}
+</pre>
+	<h3>Retour</h3>
+<pre>
+{
+	"id":10,
+    "title": "Cool 0",
+    "urlMedia": "media/cool_0.png",
+    "rank": 1
+}
+</pre>
+</div>
+<!-- fin -->
+
+<!-- début -->
+<div class="span12">
+	<h2>PUT Question</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/question</a></p>
+	<h3>ContentJSON:</h3>
+<pre>
+{
+	"id":10,
+    "title": "Cool 0",
+    "urlMedia": "media/cool_0.png",
+    "rank": 1
+}
+</pre>
+	<h3>Retour</h3>
+<pre>
+{
+	"id":10,
+    "title": "Cool 0",
+    "urlMedia": "media/cool_0.png",
+    "rank": 1
+}
+</pre>
+</div>
+<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>GET Reponse/{id}</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/reponse/1</a></p>
+	<h3>ContentJSON:</h3>
+<pre>
+aucun
+</pre>
+	<h3>Retour</h3>
+<pre>
+{
+    "id": 1,
+    "title": "Reponse0",
+    "urlMedia": "media/reponse_0.png",
+    "isCorrect": true
+}</pre>
+</div>
+<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>DELETE Reponse/{id}</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/reponse/1</a></p>
+	<h3>ContentJSON:</h3>
+<pre>
+aucun
+</pre>
+	<h3>Retour</h3>
+<pre>
+la réponse a bien été supprimée.
+</pre>
+</div>
+<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>POST Reponse</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/reponse/</a></p>
+	<h3>ContentJSON:</h3>
+<pre>
+{
+    "title": "Reponse0",
+    "urlMedia": "media/reponse_0.png",
+    "isCorrect": true
+}
+</pre>
+	<h3>Retour</h3>
+<pre>
+{
+    "id": 9,
+    "title": "Reponse0",
+    "urlMedia": "media/reponse_0.png",
+    "isCorrect": true
+}
+</pre>
+</div>
+<!-- fin -->
+<!-- début -->
+<div class="span12">
+	<h2>PUT Reponse</h2>
+	<p><a href="#">http://localhost:8080/BreakFreeEngine/webresources/reponse/</a></p>
+	<h3>ContentJSON:</h3>
+<pre>
+{
+    "id": 9,
+    "title": "Reponse0",
+    "urlMedia": "media/reponse_0.png",
+    "isCorrect": true
+}
+</pre>
+	<h3>Retour</h3>
+<pre>
+{
+    "id": 9,
+    "title": "Reponse0",
+    "urlMedia": "media/reponse_0.png",
+    "isCorrect": true
+}
+</pre>
+</div>
+<!-- fin -->
+
+</div>
+		
+	</div>
+	<!-- Fin container -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="span8">
+            <h3 class="footer-title">TB - #BreakFree</h3>
+            <p>
+            Création d'une application de jeux télévisés dans le cadre du travail de bachelor de la formation d'Ingénieur des Médias de l'HEIG-VD d'Yverdon.
+            </p>
+            <p>Table des matières</p>
+			<ul class="tablematiere">
+				<li><a href="#methodes">Listes des méthodes REST fonctionnelles</a></li>
+			</ul>		
+			
+
+          </div> <!-- /span8 -->
+          <div class="span4">
+			<div class="footer-banner">
+			<h3 class="footer-title">Membre du projet</h3>
+			<ul>
+			<li>Léo Taillard</li>
+			<li>MM39</li>
+			</ul>
+			</div>
+          </div> <!-- /span4 -->
+
+      </div>
+      </div>
+    </footer>
+
+    <!-- Load JS here for greater good =============================-->
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="js/jquery.dropkick-1.0.0.js"></script>
+    <script src="js/custom_checkbox_and_radio.js"></script>
+    <script src="js/custom_radio.js"></script>
+    <script src="js/jquery.tagsinput.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/jquery.placeholder.js"></script>
+    <script src="http://vjs.zencdn.net/c/video.js"></script>
+    <script src="js/application.js"></script>
+    <script src="js/main.js"></script>
+
+    <!--[if lt IE 8]>
+      <script src="js/icon-font-ie7.js"></script>
+      <script src="js/icon-font-ie7-24.js"></script>
+    <![endif]-->
+  </body>
+</html>
